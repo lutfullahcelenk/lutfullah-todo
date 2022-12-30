@@ -5,19 +5,19 @@ const initialState = {
 	error: "",
 };
 
-export const addTodo = createAsyncThunk("todos/addTodo", async (values) => {
+export const addTodo = createAsyncThunk("todos/addTodo", async ({ todoText, completed, userId }) => {
 	return fetch("https://dummyjson.com/todos/add", {
 		method: "POST",
 		headers: { "Content-Type": "application/json" },
 		body: JSON.stringify({
-			todo: values.todo,
-			completed: values.completed,
-			userId: 5,
+			todo: todoText,
+			completed: completed,
+			userId: userId,
 		}),
 	}).then((res) => res.json());
 });
 
-export const categoriesSlice = createSlice({
+export const addSlice = createSlice({
 	name: "devices",
 	initialState,
 	reducers: {},
@@ -36,4 +36,4 @@ export const categoriesSlice = createSlice({
 	},
 });
 
-export default categoriesSlice.reducer;
+export default addSlice.reducer;

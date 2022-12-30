@@ -5,17 +5,17 @@ const initialState = {
 	error: "",
 };
 
-export const updateTodo = createAsyncThunk("todos/updateTodo", async (id) => {
-	return fetch(`https://dummyjson.com/todos/${id}`, {
+export const updateTodo = createAsyncThunk("todos/updateTodo", async (todo) => {
+	return fetch(`https://dummyjson.com/todos/${todo.id}`, {
 		method: "PUT",
 		headers: { "Content-Type": "application/json" },
 		body: JSON.stringify({
-            completed: false
-        }),
+			completed: !todo.completed,
+		}),
 	}).then((res) => res.json());
 });
 
-export const categoriesSlice = createSlice({
+export const updateSlice = createSlice({
 	name: "todos",
 	initialState,
 	reducers: {},
@@ -34,4 +34,4 @@ export const categoriesSlice = createSlice({
 	},
 });
 
-export default categoriesSlice.reducer;
+export default updateSlice.reducer;

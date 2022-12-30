@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Hind:wght@300;400;500;700&display=swap");
+.header {
+  padding-top: 5rem;
+  color: var(--darkyBlue);
+}
+.header .todo-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  color: white;
+  text-transform: capitalize;
+  font-family: "Archivo Black", sans-serif;
+}
+.header .add-todo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  background-color: #fff;
+  padding: 1rem;
+  margin-top: 3rem;
+  border-radius: var(--radius);
+}
+.header .add-todo .add-button {
+  border: 1px solid var(--primaryBlue);
+  font-size: 1rem;
+  padding: 0.25rem 1rem;
+  border-radius: var(--radius);
+  transform: scale(1.2);
+  color: white;
+  transition: 0.3s all ease-in-out;
+  background-color: var(--greeny);
+  border-color: var(--greeny);
+}
+.header .add-todo .add-button:hover {
+  transform: scale(1.4);
+  cursor: pointer;
+  color: white;
+  transition: 0.3s all ease-in-out;
+}
+.header .add-todo input {
+  border: none;
+  width: 100%;
+  font-size: 1.25rem;
+  background-color: transparent;
+}
+.header .add-todo input:focus {
+  outline: none;
+}/*# sourceMappingURL=style.css.map */

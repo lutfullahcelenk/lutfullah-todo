@@ -1,0 +1,22 @@
+.todolist-container {
+	height: 50vh;
+	margin-top: 2rem;
+	background-image: linear-gradient(to right, #decba4, #1ea9a9);
+	overflow-y: auto;
+
+	.no-todo {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		.no-tasks {
+			color: var(--primaryBlue);
+			font-weight: 500;
+			font-size: 1.5rem;
+			text-align: center;
+			text-decoration: underline;
+		}
+	}
+}

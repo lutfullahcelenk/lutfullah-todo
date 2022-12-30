@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;700&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,400;1,700&display=swap");
+:root {
+  --primaryBlue: hsl(220, 94%, 36%);
+  --gray: hsl(0, 0%, 98%);
+  --greeny: hsl(194, 80%, 33%);
+  --lightPurple: hsl(284, 52%, 79%);
+  --background: linear-gradient(to right, #04a1c4, #701778);
+  --radius: 0.5rem;
+  --box-shadow: 0 0 2rem 1rem black, 0 0 0.5rem 0rem black;
+  --transition: 0.5s all ease-in-out;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  transition: var(--transition);
+}
+
+body {
+  height: 100vh;
+  font-size: 16px;
+  background-image: var(--background);
+  font-weight: 400;
+  font-family: "Hind", sans-serif;
+}
+
+.container {
+  width: 90%;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--greeny);
+  border-radius: 1rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}/*# sourceMappingURL=main.css.map */

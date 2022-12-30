@@ -1,0 +1,73 @@
+.todo-item {
+	width: 100%;
+	background-color: transparent;
+	color: var(--primaryBlue);
+	padding: 1.5rem 1rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 1px solid white;
+    
+
+	.check-box {
+		width: 1.5rem;
+		height: 1.5rem;
+		flex-grow: 0;
+		flex-shrink: 0;
+		background-color: transparent;
+		border-radius: 50%;
+		border: 1px solid gray;
+		margin-right: 1rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		&:hover {
+			cursor: pointer;
+		}
+
+		&.checked {
+			background-image: linear-gradient(0deg, hsl(192, 100%, 67%) 0%, hsl(280, 87%, 65%) 100%);
+			background-position: center;
+			background-repeat: no-repeat;
+			background-color: red;
+		}
+	}
+
+	.todo {
+		display: flex;
+		align-items: center;
+        max-width: 80%;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        word-wrap: normal;
+	}
+
+	.delete {
+		display: flex;
+		cursor: pointer;
+	}
+
+	.todo-text {
+		transition: 0.5s all ease-in-out;
+		
+
+		&::after {
+			transition: 0.5s all ease-in-out;
+			display: block;
+			content: "";
+			width: 0%;
+			height: 0;
+			border-bottom: 1px solid var(--gray);
+			transform: translateY(-0.5rem);
+		}
+		&.checked {
+			color: var(--gray);
+			&::after {
+				transition: 0.5s all ease-in-out;
+				width: 100%;
+			}
+		}
+	}
+}

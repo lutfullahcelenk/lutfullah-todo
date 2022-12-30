@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Hind:wght@300;400;500;700&display=swap");
+
+@mixin flex {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	width: 100%;
+}
+
+.header {
+	padding-top: 5rem;
+	color: var(--darkyBlue);
+
+	.todo-text {
+		@include flex;
+		color: white;
+		text-transform: capitalize;
+		font-family: "Archivo Black", sans-serif;
+	}
+
+	.add-todo {
+		@include flex;
+		background-color: #fff;
+		padding: 1rem;
+		margin-top: 3rem;
+		border-radius: var(--radius);
+
+		.add-button {
+			border: 1px solid var(--primaryBlue);
+			font-size: 1rem;
+			padding: 0.25rem 1rem;
+			border-radius: var(--radius);
+			transform: scale(1.2);
+			color: white;
+			transition: 0.3s all ease-in-out;
+			background-color: var(--greeny);
+			border-color: var(--greeny);
+
+			&:hover {
+				transform: scale(1.4);
+				cursor: pointer;
+				color: white;
+				transition: 0.3s all ease-in-out;
+			}
+		}
+
+		input {
+			border: none;
+			width: 100%;
+			font-size: 1.25rem;
+			background-color: transparent;
+
+			&:focus {
+				outline: none;
+			}
+		}
+	}
+}

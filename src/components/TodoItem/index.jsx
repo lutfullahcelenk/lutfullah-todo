@@ -5,7 +5,9 @@ import CheckSVG from "../../assets/CheckSVG";
 import TrashSVG from "../../assets/TrashSVG";
 import deleteTodo from "../../features/backend/deleteTodo";
 import updateTodo from "../../features/backend/updateTodo";
+import { toast, ToastContainer } from "react-toastify";
 import { completeTodos, removeTodos } from "../../features/localStorage/todoSlice";
+import "react-toastify/dist/ReactToastify.css";
 import "./style.css";
 
 const TodoItem = ({ todo }) => {
@@ -14,9 +16,11 @@ const TodoItem = ({ todo }) => {
 	// const handleChangeStatus = (todo) => dispatch(updateTodo(todo));
 	// const handleDeleteTodo = (todo) => dispatch(deleteTodo(todo));
 
-	const handleDeleteTodo = (id) => dispatch(removeTodos(id));
 	const handleChangeStatus = (id) => dispatch(completeTodos(id));
-
+	const handleDeleteTodo = (id) => {
+		dispatch(removeTodos(id));
+		toast.error("Todo is deleted", {position: "bottom-right"});
+	};
 	return (
 		<div className='todo-item'>
 			<div className='todo'>

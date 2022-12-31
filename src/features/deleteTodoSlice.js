@@ -1,18 +1,16 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
 
 const initialState = {
 	loading: false,
 	error: "",
 };
 
-export const deleteTodo = createAsyncThunk("todos/deleteTodo", async (todo) => {
-	return fetch(`https://dummyjson.com/todos/${todo.id}`, {
-		method: "DELETE",
-		headers: { "Content-Type": "application/json" },
-	}).then((res) => res.json());
+export const deleteTodo = createAsyncThunk("todos/deleteTodo", async (id) => {
+	return axios.delete(`https://lutfullah-todo-55ce8-default-rtdb.firebaseio.com/todos/${id}.json`)
 });
 
-export const deleteSlice = createSlice({
+export const deleteTodoSlice = createSlice({
 	name: "todos",
 	initialState,
 	reducers: {},
@@ -31,4 +29,4 @@ export const deleteSlice = createSlice({
 	},
 });
 
-export default deleteSlice.reducer;
+export default deleteTodoSlice.reducer;

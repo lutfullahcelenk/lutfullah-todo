@@ -1,29 +1,27 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import addTodo from "../../features/backend/addTodo";
+import { useDispatch, useSelector } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
-import { addTodos } from "../../features/localStorage/todoSlice";
+import { addTodo } from "../../features/addTodoSlice";
 import "react-toastify/dist/ReactToastify.css";
 import "./style.css";
 
 const AddTodo = () => {
-	const [todo, setTodo] = useState("");
 	const dispatch = useDispatch();
+	const [todo, setTodo] = useState("");
+	const { todos } = useSelector((state) => state.todo);
 
 	const handleChange = (e) => setTodo(e.target.value);
+
 	const handleAddTodo = () => {
-		todo === ""
-			? alert("Please enter a todo")
-			: dispatch(
-					addTodos({
-						id: Math.floor(Math.random() * 1000),
-						item: todo,
-						completed: false,
-					})
-			  );
-		setTodo("");
-		toast.success("Todo is added successfully...", { position: "bottom-right" });
+		if (todo === "") {
+			toast.info("Please add a todo...", { position: "bottom-right" });
+		} else {
+			dispatch(addTodo({ title: todo, completed: false }));
+			setTodo("");
+			toast.success(`Todo is added...`, { position: "bottom-right" });
+			console.log(todos);
+		}
 	};
 
 	return (

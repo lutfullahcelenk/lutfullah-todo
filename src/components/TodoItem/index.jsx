@@ -3,34 +3,31 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import CheckSVG from "../../assets/CheckSVG";
 import TrashSVG from "../../assets/TrashSVG";
-import deleteTodo from "../../features/backend/deleteTodo";
-import updateTodo from "../../features/backend/updateTodo";
-import { toast, ToastContainer } from "react-toastify";
-import { completeTodos, removeTodos } from "../../features/localStorage/todoSlice";
+import { deleteTodo } from "../../features/deleteTodoSlice";
+import { updateTodo } from "../../features/updateTodoSlice";
 import "react-toastify/dist/ReactToastify.css";
 import "./style.css";
+import { toast } from "react-toastify";
 
 const TodoItem = ({ todo }) => {
 	const dispatch = useDispatch();
 
-	// const handleChangeStatus = (todo) => dispatch(updateTodo(todo));
-	// const handleDeleteTodo = (todo) => dispatch(deleteTodo(todo));
-
-	const handleChangeStatus = (id) => dispatch(completeTodos(id));
-	const handleDeleteTodo = (id) => {
-		dispatch(removeTodos(id));
-		toast.error("Todo is deleted", {position: "bottom-right"});
+	const handleChangeStatus = (todo) => dispatch(updateTodo(todo));
+	const handleDeleteTodo = (todo) => {
+		dispatch(deleteTodo(todo.id));
+		toast.warning(`Todo:${todo.title} is deleted`, { position: "bottom-right" });
 	};
+
 	return (
 		<div className='todo-item'>
 			<div className='todo'>
-				<span className={`check-box ${todo?.completed && "checked"}`} onClick={() => handleChangeStatus(todo.id)}>
+				<span className={`check-box ${todo?.completed && "checked"}`} onClick={() => handleChangeStatus(todo)}>
 					{todo?.completed && <CheckSVG />}
 				</span>
-				<p className={`todo-text ${todo?.completed && "checked"}`}>{todo.item}</p>
+				<p className={`todo-text ${todo?.completed && "checked"}`}>{todo.title}</p>
 			</div>
 
-			<div className='delete' onClick={() => handleDeleteTodo(todo.id)}>
+			<div className='delete' onClick={() => handleDeleteTodo(todo)}>
 				<TrashSVG />
 			</div>
 		</div>

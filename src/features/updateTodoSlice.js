@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
 
 const initialState = {
 	loading: false,
@@ -6,16 +7,15 @@ const initialState = {
 };
 
 export const updateTodo = createAsyncThunk("todos/updateTodo", async (todo) => {
-	return fetch(`https://dummyjson.com/todos/${todo.id}`, {
-		method: "PUT",
-		headers: { "Content-Type": "application/json" },
-		body: JSON.stringify({
-			completed: !todo.completed,
-		}),
-	}).then((res) => res.json());
+	const updatedTodo = {
+		id: todo.id,
+		title: todo.title,
+		completed: !todo.completed,
+	};
+	return axios.patch(`https://lutfullah-todo-55ce8-default-rtdb.firebaseio.com/todos/${todo.id}.json`, updatedTodo);
 });
 
-export const updateSlice = createSlice({
+export const updateTodoSlice = createSlice({
 	name: "todos",
 	initialState,
 	reducers: {},
@@ -34,4 +34,4 @@ export const updateSlice = createSlice({
 	},
 });
 
-export default updateSlice.reducer;
+export default updateTodoSlice.reducer;

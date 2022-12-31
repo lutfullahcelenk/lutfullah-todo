@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import todoReducer from "../features/backend/fetchTodoSlice";
-import updateReducer from "../features/backend/updateTodo";
-import deleteReducer from "../features/backend/deleteTodo";
-import addReducer from "../features/backend/addTodo";
-import todoSliceReducer from "../features/localStorage/todoSlice";
+import todoReducer from "../features/fetchTodoSlice";
+import updateReducer from "../features/updateTodoSlice";
+import deleteReducer from "../features/deleteTodoSlice";
+import addReducer from "../features/addTodoSlice";
+import todoSliceReducer from "../features/frontend/todoSlice";
 
 export const store = configureStore({
 	reducer: {
@@ -13,4 +13,8 @@ export const store = configureStore({
 		add: addReducer,
 		todoSlice: todoSliceReducer,
 	},
+	middleware: (getDefaultMiddleware) =>
+		getDefaultMiddleware({
+			serializableCheck: false,
+		}),
 });

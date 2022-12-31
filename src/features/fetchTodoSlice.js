@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
 
 const initialState = {
 	todos: [],
@@ -7,10 +8,16 @@ const initialState = {
 };
 
 export const fetchTodos = createAsyncThunk("todos/fetchTodos", async () => {
-	return fetch("https://dummyjson.com/todos/user/5").then((res) => res.json());
+	return axios.get("https://lutfullah-todo-55ce8-default-rtdb.firebaseio.com/todos.json").then((res) => {
+		const arr = [];
+		for (let key in res.data) {
+			arr.push({ ...res.data[key], id: key });
+		}
+		return arr;
+	});
 });
 
-export const todoSlice = createSlice({
+export const fetchTodoSlice = createSlice({
 	name: "todos",
 	initialState,
 	reducers: {},
@@ -21,7 +28,7 @@ export const todoSlice = createSlice({
 		builder.addCase(fetchTodos.fulfilled, (state, action) => {
 			state.loading = false;
 			state.error = "";
-			state.todos = action.payload.todos;
+			state.todos = action.payload;
 		});
 		builder.addCase(fetchTodos.rejected, (state) => {
 			state.loading = false;
@@ -31,4 +38,4 @@ export const todoSlice = createSlice({
 	},
 });
 
-export default todoSlice.reducer;
+export default fetchTodoSlice.reducer;

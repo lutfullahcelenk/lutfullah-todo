@@ -1,23 +1,16 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
 
 const initialState = {
 	loading: false,
 	error: "",
 };
 
-export const addTodo = createAsyncThunk("todos/addTodo", async ({ todoText, completed, userId }) => {
-	return fetch("https://dummyjson.com/todos/add", {
-		method: "POST",
-		headers: { "Content-Type": "application/json" },
-		body: JSON.stringify({
-			todo: todoText,
-			completed: completed,
-			userId: userId,
-		}),
-	}).then((res) => res.json());
+export const addTodo = createAsyncThunk("todos/addTodo", (todo) => {
+	return axios.post("https://lutfullah-todo-55ce8-default-rtdb.firebaseio.com/todos.json", todo);
 });
 
-export const addSlice = createSlice({
+export const addTodoSlice = createSlice({
 	name: "devices",
 	initialState,
 	reducers: {},
@@ -36,4 +29,4 @@ export const addSlice = createSlice({
 	},
 });
 
-export default addSlice.reducer;
+export default addTodoSlice.reducer;

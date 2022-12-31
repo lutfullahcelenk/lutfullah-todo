@@ -1,18 +1,19 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import AddTodo from "./components/AddTodo";
 import TodoList from "./components/TodoList";
-import { fetchTodos } from "./features/fetchTodoSlice";
+import { fetchTodos } from "./features/backend/fetchTodoSlice";
 import "./styles/main.css";
 
 const App = () => {
-	const dispatch = useDispatch();
-	const { todos } = useSelector((state) => state.todo);
-	console.log(todos);
+	// const dispatch = useDispatch();
+	// const { todos } = useSelector((state) => state.todo);
+	// useEffect(() => {
+	// 	dispatch(fetchTodos());
+	// }, []);
 
-	useEffect(() => {
-		dispatch(fetchTodos());
-	}, []);
+	const { todos } = useSelector((state) => state?.todoSlice);
 
 	return (
 		<div className='container'>

@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
 import { addTodo } from "../../features/addTodoSlice";
 import "react-toastify/dist/ReactToastify.css";
@@ -9,7 +9,6 @@ import "./style.css";
 const AddTodo = () => {
 	const dispatch = useDispatch();
 	const [todo, setTodo] = useState("");
-	const { todos } = useSelector((state) => state.todo);
 
 	const handleChange = (e) => setTodo(e.target.value);
 
@@ -20,7 +19,6 @@ const AddTodo = () => {
 			dispatch(addTodo({ title: todo, completed: false }));
 			setTodo("");
 			toast.success(`Todo is added...`, { position: "bottom-right" });
-			console.log(todos);
 		}
 	};
 

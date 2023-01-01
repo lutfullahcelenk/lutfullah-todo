@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import AddTodo from "./components/AddTodo";
+import Background from "./components/BackGround";
 import TodoList from "./components/TodoList";
 import { fetchTodos } from "./features/fetchTodoSlice";
 import "./styles/main.css";
@@ -16,6 +17,7 @@ const App = () => {
 
 	return (
 		<div className='container'>
+            <Background />
 			<AddTodo />
 			<TodoList todos={todos} />
 		</div>

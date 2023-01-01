@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Hind:wght@300;400;500;700&display=swap");
 .header {
-  padding-top: 5rem;
+  padding-top: 3rem;
   color: var(--darkyBlue);
 }
 .header .todo-text {

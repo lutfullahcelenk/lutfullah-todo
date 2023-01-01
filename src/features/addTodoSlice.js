@@ -1,5 +1,4 @@
 import axios from "axios";
-import { BASE_URL } from "../constants/api";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {

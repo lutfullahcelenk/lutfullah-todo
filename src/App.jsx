@@ -14,7 +14,6 @@ const App = () => {
 		dispatch(fetchTodos());
 	}, [todos, dispatch]);
 
-
 	return (
 		<div className='container'>
             <Background />

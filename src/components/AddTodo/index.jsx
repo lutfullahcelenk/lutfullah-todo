@@ -26,7 +26,7 @@ const AddTodo = () => {
 			<h1 className='todo-text'>Lutfullah Todo</h1>
 
 			<div className='add-todo'>
-				<input placeholder='Add a new Lutfullah todo...' onChange={(e) => handleChange(e)} value={todo} />
+				<input className="add-todo-input" placeholder='Add a new Lutfullah todo...' onChange={(e) => handleChange(e)} value={todo} />
 				<button type='button' className='add-button' onClick={handleAddTodo}>
 					Add
 				</button>

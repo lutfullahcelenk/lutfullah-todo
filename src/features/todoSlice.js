@@ -18,7 +18,24 @@ export const fetchTodos = createAsyncThunk("todos/fetchTodos", async () => {
 	});
 });
 
-export const fetchTodoSlice = createSlice({
+export const addTodo = createAsyncThunk("todos/addTodo", (todo) => {
+	return axios.post(`${BASE_URL}/todos.json`, todo);
+});
+
+export const updateTodo = createAsyncThunk("todos/updateTodo", async (todo) => {
+	const updatedTodo = {
+		id: todo.id,
+		title: todo.title,
+		completed: !todo.completed,
+	};
+	return axios.patch(`${BASE_URL}/todos/${todo.id}.json`, updatedTodo);
+});
+
+export const deleteTodo = createAsyncThunk("todos/deleteTodo", async (id) => {
+	return axios.delete(`${BASE_URL}/todos/${id}.json`);
+});
+
+export const todoSlice = createSlice({
 	name: "todos",
 	initialState,
 	reducers: {},
@@ -39,4 +56,4 @@ export const fetchTodoSlice = createSlice({
 	},
 });
 
-export default fetchTodoSlice.reducer;
+export default todoSlice.reducer;

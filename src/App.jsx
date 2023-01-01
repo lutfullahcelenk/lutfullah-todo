@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import AddTodo from "./components/AddTodo";
 import Background from "./components/BackGround";
 import TodoList from "./components/TodoList";
-import { fetchTodos } from "./features/fetchTodoSlice";
+import { fetchTodos } from "./features/todoSlice";
 import "./styles/main.css";
 
 const App = () => {

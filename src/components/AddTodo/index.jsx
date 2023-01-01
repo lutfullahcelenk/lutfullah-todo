@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
-import { addTodo } from "../../features/addTodoSlice";
+import { addTodo } from "../../features/todoSlice";
 import "react-toastify/dist/ReactToastify.css";
 import "./style.css";
 

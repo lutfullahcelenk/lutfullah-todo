@@ -4,8 +4,7 @@ import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import CheckSVG from "../../assets/CheckSVG";
 import TrashSVG from "../../assets/TrashSVG";
-import { deleteTodo } from "../../features/deleteTodoSlice";
-import { updateTodo } from "../../features/updateTodoSlice";
+import { deleteTodo, updateTodo } from "../../features/todoSlice";
 import "react-toastify/dist/ReactToastify.css";
 import "./style.css";
 

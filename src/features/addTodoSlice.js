@@ -1,4 +1,5 @@
 import axios from "axios";
+import { BASE_URL } from "../constants/api";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
@@ -7,7 +8,7 @@ const initialState = {
 };
 
 export const addTodo = createAsyncThunk("todos/addTodo", (todo) => {
-	return axios.post(`https://lutfullah-todo-55ce8-default-rtdb.firebaseio.com/todos.json`, todo);
+	return axios.post(`${BASE_URL}/todos.json`, todo);
 });
 
 export const addTodoSlice = createSlice({

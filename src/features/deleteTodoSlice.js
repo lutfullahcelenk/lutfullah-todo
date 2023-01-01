@@ -1,5 +1,6 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { BASE_URL } from "../constants/api";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
 	loading: false,
@@ -7,7 +8,7 @@ const initialState = {
 };
 
 export const deleteTodo = createAsyncThunk("todos/deleteTodo", async (id) => {
-	return axios.delete(`${process.env.REACT_APP_API_END_POINT}/todos/${id}.json`)
+	return axios.delete(`${BASE_URL}/todos/${id}.json`)
 });
 
 export const deleteTodoSlice = createSlice({

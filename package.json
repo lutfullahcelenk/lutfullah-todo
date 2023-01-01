@@ -8,7 +8,6 @@
 		"@testing-library/react": "^13.4.0",
 		"@testing-library/user-event": "^14.4.3",
 		"axios": "^1.2.2",
-		"env-cmd": "^10.1.0",
 		"firebase": "^9.15.0",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
@@ -23,13 +22,7 @@
 		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
-		"eject": "react-scripts eject",
-		"start:dev": "env-cmd -f ./environments/.dev.env react-scripts start",
-		"build:dev": "env-cmd -f ./environments/.dev.env npm run-script build",
-		"start:qa": "env-cmd -f ./environments/.qa.env react-scripts start",
-		"build:qa": "env-cmd -f ./environments/.qa.env npm run-script build",
-		"start:prod": "env-cmd -f ./environments/.prod.env react-scripts start",
-		"build:prod": "env-cmd -f ./environments/.prod.env npm run-script build"
+		"eject": "react-scripts eject"
 	},
 	"eslintConfig": {
 		"extends": [
@@ -48,5 +41,8 @@
 			"last 1 firefox version",
 			"last 1 safari version"
 		]
+	},
+	"devDependencies": {
+		"env-cmd": "^10.1.0"
 	}
 }

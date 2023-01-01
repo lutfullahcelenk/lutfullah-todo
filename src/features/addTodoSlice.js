@@ -1,5 +1,6 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { BASE_URL } from "../constants/api";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
 	loading: false,
@@ -7,7 +8,7 @@ const initialState = {
 };
 
 export const addTodo = createAsyncThunk("todos/addTodo", (todo) => {
-	return axios.post(`${process.env.REACT_APP_API_END_POINT}/todos.json`, todo);
+	return axios.post(`${BASE_URL}/todos.json`, todo);
 });
 
 export const addTodoSlice = createSlice({

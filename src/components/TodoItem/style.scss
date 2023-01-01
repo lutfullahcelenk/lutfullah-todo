@@ -62,7 +62,7 @@
 			transform: translateY(-0.5rem);
 		}
 		&.checked {
-			color: var(--gray);
+			color: var(--primaryBlue);
 			&::after {
 				transition: 0.5s all ease-in-out;
 				width: 100%;

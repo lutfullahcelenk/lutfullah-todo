@@ -1,5 +1,6 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { BASE_URL } from "../constants/api";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
 	todos: [],
@@ -8,7 +9,7 @@ const initialState = {
 };
 
 export const fetchTodos = createAsyncThunk("todos/fetchTodos", async () => {
-	return axios.get(`${process.env.REACT_APP_API_END_POINT}/todos.json`).then((res) => {
+	return axios.get(`${BASE_URL}/todos.json`).then((res) => {
 		const arr = [];
 		for (let key in res.data) {
 			arr.push({ ...res.data[key], id: key });

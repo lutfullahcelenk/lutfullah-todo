@@ -1,5 +1,6 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { BASE_URL } from "../constants/api";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
 	loading: false,
@@ -12,7 +13,7 @@ export const updateTodo = createAsyncThunk("todos/updateTodo", async (todo) => {
 		title: todo.title,
 		completed: !todo.completed,
 	};
-	return axios.patch(`${process.env.REACT_APP_API_END_POINT}/todos/${todo.id}.json`, updatedTodo);
+	return axios.patch(`${BASE_URL}/todos/${todo.id}.json`, updatedTodo);
 });
 
 export const updateTodoSlice = createSlice({

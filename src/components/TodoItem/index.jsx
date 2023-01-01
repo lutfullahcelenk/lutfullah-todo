@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
+import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import CheckSVG from "../../assets/CheckSVG";
 import TrashSVG from "../../assets/TrashSVG";
@@ -7,7 +8,6 @@ import { deleteTodo } from "../../features/deleteTodoSlice";
 import { updateTodo } from "../../features/updateTodoSlice";
 import "react-toastify/dist/ReactToastify.css";
 import "./style.css";
-import { toast } from "react-toastify";
 
 const TodoItem = ({ todo }) => {
 	const dispatch = useDispatch();

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import TodoItem from "../TodoItem";
 import "./style.css";
 
-const TodoList = ({ todos }) => {
+const TodoList = ({ todos, loading }) => {
 	const [sort, setSort] = useState("all");
 
 	return (
@@ -28,18 +28,18 @@ const TodoList = ({ todos }) => {
 					<>
 						{todos.length > 0 &&
 							sort === "active" &&
-							todos.map((todo) => {
-								return todo.completed === false && <TodoItem todo={todo} />;
+							todos.map((todo, index) => {
+								return todo.completed === false && <TodoItem key={index} todo={todo} />;
 							})}
 						{todos.length > 0 &&
 							sort === "completed" &&
-							todos.map((todo) => {
-								return todo.completed === true && <TodoItem todo={todo} />;
+							todos.map((todo, index) => {
+								return todo.completed === true && <TodoItem key={index} todo={todo} />;
 							})}
 						{todos.length > 0 &&
 							sort === "all" &&
-							todos.map((todo) => {
-								return <TodoItem todo={todo} />;
+							todos.map((todo, index) => {
+								return <TodoItem key={index} todo={todo} />;
 							})}
 					</>
 				)}

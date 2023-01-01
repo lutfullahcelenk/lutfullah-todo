@@ -9,16 +9,15 @@ import "./style.css";
 const AddTodo = () => {
 	const dispatch = useDispatch();
 	const [todo, setTodo] = useState("");
-
 	const handleChange = (e) => setTodo(e.target.value);
 
 	const handleAddTodo = () => {
 		if (todo === "") {
-			toast.info("Please add a todo...", { position: "bottom-right" });
+			toast.info("Please add a todo...", { position: "bottom-right", autoClose: 1500 });
 		} else {
 			dispatch(addTodo({ title: todo, completed: false }));
 			setTodo("");
-			toast.success(`Todo is added...`, { position: "bottom-right" });
+			toast.success(`Todo is added...`, { position: "bottom-right", autoClose: 1500 });
 		}
 	};
 

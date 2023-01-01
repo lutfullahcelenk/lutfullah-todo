@@ -7,7 +7,7 @@ const initialState = {
 };
 
 export const addTodo = createAsyncThunk("todos/addTodo", (todo) => {
-	return axios.post("https://lutfullah-todo-55ce8-default-rtdb.firebaseio.com/todos.json", todo);
+	return axios.post(`${process.env.REACT_APP_API_END_POINT}/todos.json`, todo);
 });
 
 export const addTodoSlice = createSlice({

@@ -7,7 +7,7 @@ const initialState = {
 };
 
 export const deleteTodo = createAsyncThunk("todos/deleteTodo", async (id) => {
-	return axios.delete(`https://lutfullah-todo-55ce8-default-rtdb.firebaseio.com/todos/${id}.json`)
+	return axios.delete(`${process.env.REACT_APP_API_END_POINT}/todos/${id}.json`)
 });
 
 export const deleteTodoSlice = createSlice({

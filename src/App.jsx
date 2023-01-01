@@ -8,7 +8,7 @@ import "./styles/main.css";
 
 const App = () => {
 	const dispatch = useDispatch();
-	const { todos } = useSelector((state) => state.todo);
+	const { todos, loading } = useSelector((state) => state.todo);
 
 	useEffect(() => {
 		dispatch(fetchTodos());
@@ -19,7 +19,7 @@ const App = () => {
 		<div className='container'>
             <Background />
 			<AddTodo />
-			<TodoList todos={todos} />
+			<TodoList todos={todos} loading={loading} />
 		</div>
 	);
 };

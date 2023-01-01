@@ -15,7 +15,7 @@ const TodoItem = ({ todo }) => {
 	const handleChangeStatus = (todo) => dispatch(updateTodo(todo));
 	const handleDeleteTodo = (todo) => {
 		dispatch(deleteTodo(todo.id));
-		toast.warning(`Todo:${todo.title} is deleted`, { position: "bottom-right" });
+		toast.warning(`Todo:${todo.title} is deleted`, { position: "bottom-right", autoClose: 1500 });
 	};
 
 	return (

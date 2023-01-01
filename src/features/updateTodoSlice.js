@@ -13,7 +13,7 @@ export const updateTodo = createAsyncThunk("todos/updateTodo", async (todo) => {
 		title: todo.title,
 		completed: !todo.completed,
 	};
-	return axios.patch(`${BASE_URL}/todos/${todo.id}.json`, updatedTodo);
+	return axios.patch(`https://lutfullah-todo-55ce8-default-rtdb.firebaseio.com/todos/${todo.id}.json`, updatedTodo);
 });
 
 export const updateTodoSlice = createSlice({

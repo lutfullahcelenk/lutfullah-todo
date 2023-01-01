@@ -9,7 +9,7 @@ const initialState = {
 };
 
 export const fetchTodos = createAsyncThunk("todos/fetchTodos", async () => {
-	return axios.get(`${BASE_URL}/todos.json`).then((res) => {
+	return axios.get(`https://lutfullah-todo-55ce8-default-rtdb.firebaseio.com/todos.json`).then((res) => {
 		const arr = [];
 		for (let key in res.data) {
 			arr.push({ ...res.data[key], id: key });
